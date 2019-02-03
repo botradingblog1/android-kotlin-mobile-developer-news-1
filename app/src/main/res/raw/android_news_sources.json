@@ -1,11 +1,15 @@
 {
   "news_sources": [
     {
-      "name": "news_source_name",
+      "id": 1,
+      "title": "news_source_name 1",
+      "description" : "description",
       "url": "http://google.com"
     },
     {
-      "name": "news_source_name",
+      "id": 1,
+      "title": "news_source_name",
+      "description" : "description",
       "name": "news_source_name"
     }
   ]

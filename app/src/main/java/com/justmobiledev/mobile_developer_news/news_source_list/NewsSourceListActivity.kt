@@ -9,11 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.support.v4.app.NavUtils
-import android.app.ActionBar
+import android.util.Log
 import android.view.MenuItem
+import com.github.salomonbrys.kotson.fromJson
+import com.google.gson.Gson
 import com.justmobiledev.mobile_developer_news.R
+import com.justmobiledev.mobile_developer_news.models.NewsSourceItem
 
-import com.justmobiledev.mobile_developer_news.news_source_list.dummy.DummyContent
 import kotlinx.android.synthetic.main.activity_newssource_list.*
 import kotlinx.android.synthetic.main.newssource_list_content.view.*
 //import kotlinx.android.synthetic.main.newssource_list.*
@@ -27,7 +29,7 @@ import kotlinx.android.synthetic.main.newssource_list_content.view.*
  * item details side-by-side using two vertical panes.
  */
 class NewsSourceListActivity : AppCompatActivity() {
-
+    val TAG = "NewsSourceListActivity"
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
      * device.
@@ -67,12 +69,30 @@ class NewsSourceListActivity : AppCompatActivity() {
         }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
-        recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, twoPane)
+
+        var newsSourceJson = ""
+        var newsSourceItemList = listOf<NewsSourceItem>()
+
+        try{
+            // Load News Source items
+            newsSourceJson = resources.openRawResource(R.raw.android_news_sources)
+                .bufferedReader().use { it.readText() }
+
+            val gson = Gson()
+
+            newsSourceItemList = gson.fromJson<List<NewsSourceItem>>(newsSourceJson)
+        }
+        catch(e: Exception){
+            Log.d(TAG, e.localizedMessage)
+        }
+
+
+        recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, newsSourceItemList, twoPane)
     }
 
     class SimpleItemRecyclerViewAdapter(
         private val parentActivity: NewsSourceListActivity,
-        private val values: List<DummyContent.DummyItem>,
+        private val values: List<NewsSourceItem>,
         private val twoPane: Boolean
     ) :
         RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
@@ -81,7 +101,7 @@ class NewsSourceListActivity : AppCompatActivity() {
 
         init {
             onClickListener = View.OnClickListener { v ->
-                val item = v.tag as DummyContent.DummyItem
+                val item = v.tag as NewsSourceItem.NewsSourceItem
                 if (twoPane) {
                     val fragment = NewsSourceDetailFragment().apply {
                         arguments = Bundle().apply {
@@ -109,8 +129,8 @@ class NewsSourceListActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val item = values[position]
-            holder.idView.text = item.id
-            holder.contentView.text = item.content
+            holder.idView.text = item.id.toString()
+            holder.contentView.text = item.title
 
             with(holder.itemView) {
                 tag = item

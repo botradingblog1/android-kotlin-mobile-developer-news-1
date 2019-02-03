@@ -34,4 +34,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     compile 'com.jsibbold:zoomage:1.2.0'
     compile 'com.prof.rssparser:rssparser:2.0.3'
+    compile 'com.github.salomonbrys.kotson:kotson:2.5.0'
 }
