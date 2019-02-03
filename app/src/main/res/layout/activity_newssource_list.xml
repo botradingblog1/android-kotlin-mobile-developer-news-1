@@ -6,8 +6,7 @@
                                         android:name="com.justmobiledev.mobile_developer_news.news_source_list.NewsSourceListFragment"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:layout_marginLeft="16dp"
-                                        android:layout_marginRight="16dp"
+                                           android:padding="@dimen/page_frame_padding"
                                         app:layoutManager="LinearLayoutManager"
                                         tools:context="com.justmobiledev.mobile_developer_news.news_source_list.NewsSourceListActivity"
                                         tools:listitem="@layout/news_source_list_content"/>

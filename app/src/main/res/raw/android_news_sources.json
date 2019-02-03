@@ -1,10 +1,4 @@
-[{
-  "id": 1,
-  "title": "Android Developers Blog",
-  "description": "The Android Developers Blog is the official blog of the Android Platform and it’s the first place to check for Android announcements.",
-  "frequency" : "2 posts per week",
-  "url": "http://feeds.feedburner.com/blogspot/hsDu"
-},
+[
   {
     "id": 2,
     "title": "Android Authority Android Development",
@@ -14,8 +8,8 @@
   },
   {
     "id": 3,
-    "title": "AndroidHive",
-    "description": "AndroidHive is beginner's paradise for android tutorials, tips & tricks, games, hacks and super cool advanced topics along with full source code at single place. ",
+    "title": "Android Hive",
+    "description": "Android Hive is beginner's paradise for android tutorials, tips & tricks, games, hacks and super cool advanced topics along with full source code at single place. ",
     "frequency" : "2 posts per month",
     "url": "https://www.androidhive.info/feed/"
   },
