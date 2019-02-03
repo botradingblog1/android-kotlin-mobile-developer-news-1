@@ -101,7 +101,6 @@ class NewsSourceListActivity : AppCompatActivity() {
             Log.d(TAG, e.localizedMessage)
         }
 
-
         recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, newsSourceItemList, twoPane)
     }
 

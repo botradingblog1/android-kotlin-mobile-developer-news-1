@@ -19,9 +19,7 @@ class NewsSourceDetailFragment : Fragment() {
     /**
      * The dummy content this fragment is presenting.
      */
-    private var newsItemId = 0
-    private var newsItemTitle = ""
-    private var newsItemUrl = ""
+    private var newsItem : NewsSourceItem? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,13 +27,7 @@ class NewsSourceDetailFragment : Fragment() {
 
         arguments?.let {
             if (it.containsKey(NewsSourceItem.NEWS_SOURCE_ITEM_ID)) {
-                newsItemId = it.getInt(NewsSourceItem.NEWS_SOURCE_ITEM_ID)
-            }
-            if (it.containsKey(NewsSourceItem.NEWS_SOURCE_ITEM_TITLE)) {
-                newsItemTitle = it.getString(NewsSourceItem.NEWS_SOURCE_ITEM_TITLE)
-            }
-            if (it.containsKey(NewsSourceItem.NEWS_SOURCE_ITEM_URL)) {
-                newsItemUrl = it.getString(NewsSourceItem.NEWS_SOURCE_ITEM_URL)
+                newsItem = it.getParcelable<NewsSourceItem>(NewsSourceItem.NEWS_SOURCE_ITEM_ID)
             }
         }
     }
@@ -44,7 +36,7 @@ class NewsSourceDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.newssource_detail, container, false)
+        val rootView = inflater.inflate(R.layout.news_source_list_detail, container, false)
 
         return rootView
     }
