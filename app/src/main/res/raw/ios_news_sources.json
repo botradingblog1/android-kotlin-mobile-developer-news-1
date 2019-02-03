@@ -1,0 +1,13 @@
+[{
+  "id": 1,
+  "title": "Apple Developer News",
+  "description": "description",
+  "url": "https://developer.apple.com/news/rss/news.rss"
+},
+  {
+    "id": 2,
+    "title": "iOS Dev Weekly",
+    "description": "description",
+    "url": "https://iosdevweekly.com/issues.rss"
+  }
+]

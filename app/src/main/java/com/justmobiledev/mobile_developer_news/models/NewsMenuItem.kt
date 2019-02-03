@@ -6,7 +6,7 @@ package com.justmobiledev.mobile_developer_news.models
  *
  * TODO: Replace all uses of this class before publishing your app.
  */
-class NewsMenuItem(var id: String, var title: String, var subTitle: String) {
+class NewsMenuItem(var id: Int, var title: String, var subTitle: String) {
 
 
 }

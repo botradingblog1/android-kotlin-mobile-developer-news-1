@@ -1,7 +1,9 @@
 package com.justmobiledev.mobile_developer_news.news_source_list
 
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
+import android.support.annotation.RawRes
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -14,6 +16,7 @@ import android.view.MenuItem
 import com.github.salomonbrys.kotson.fromJson
 import com.google.gson.Gson
 import com.justmobiledev.mobile_developer_news.R
+import com.justmobiledev.mobile_developer_news.constants.Constants
 import com.justmobiledev.mobile_developer_news.models.NewsSourceItem
 
 import kotlinx.android.synthetic.main.activity_newssource_list.*
@@ -35,12 +38,18 @@ class NewsSourceListActivity : AppCompatActivity() {
      * device.
      */
     private var twoPane: Boolean = false
+    private var newsSourceType = 0
+    private var newsSourceTitle = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_newssource_list)
         // Show the Up button in the action bar.
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Get the News Type
+        newsSourceType = intent.getIntExtra(Constants.PAGE_ITEM_ID, 0)
+        newsSourceTitle = intent.getStringExtra(Constants.PAGE_ITEM_NAME)
 
         if (newssource_detail_container != null) {
             // The detail container view will be present only in the
@@ -74,13 +83,19 @@ class NewsSourceListActivity : AppCompatActivity() {
         var newsSourceItemList = listOf<NewsSourceItem>()
 
         try{
-            // Load News Source items
-            newsSourceJson = resources.openRawResource(R.raw.android_news_sources)
-                .bufferedReader().use { it.readText() }
+            // Load News Source items from JSON
+            if (newsSourceType == Constants.ANDROID_NEWS_ID)
+            {
+                newsSourceJson = resources.openRawResource(R.raw.android_news_sources).bufferedReader().use { it.readText() }
+            }
+            else if (newsSourceType == Constants.IOS_NEWS_ID)
+            {
+                newsSourceJson = resources.openRawResource(R.raw.ios_news_sources).bufferedReader().use { it.readText() }
+            }
 
             val gson = Gson()
 
-            newsSourceItemList = gson.fromJson<List<NewsSourceItem>>(newsSourceJson)
+            newsSourceItemList = gson.fromJson(newsSourceJson)
         }
         catch(e: Exception){
             Log.d(TAG, e.localizedMessage)

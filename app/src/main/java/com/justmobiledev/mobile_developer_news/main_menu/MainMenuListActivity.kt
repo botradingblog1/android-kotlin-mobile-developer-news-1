@@ -71,14 +71,14 @@ class MainMenuListActivity : AppCompatActivity() {
         // Create menu items
         menuItems.add(0,
             NewsMenuItem(
-                Constants.MENU_ANDROID_NEWS_ID,
+                Constants.ANDROID_NEWS_ID,
                 getString(R.string.title_android_news),
                 ""
             )
         )
         menuItems.add(0,
             NewsMenuItem(
-                Constants.MENU_IOS_NEWS_ID,
+                Constants.IOS_NEWS_ID,
                 getString(R.string.title_ios_news),
                 ""
             )
@@ -108,7 +108,7 @@ class MainMenuListActivity : AppCompatActivity() {
                 if (twoPane) {
                     val fragment = NewsSourceDetailFragment().apply {
                         arguments = Bundle().apply {
-                            putString(Constants.PAGE_ITEM_ID, item.id)
+                            putInt(Constants.PAGE_ITEM_ID, item.id)
                             putString(Constants.PAGE_ITEM_NAME, item.title)
                         }
                     }

@@ -3,8 +3,8 @@ package com.justmobiledev.mobile_developer_news.constants
 class Constants{
     companion object {
         // Main Menu
-        val MENU_ANDROID_NEWS_ID = "1"
-        val MENU_IOS_NEWS_ID = "2"
+        val ANDROID_NEWS_ID = 1
+        val IOS_NEWS_ID = 2
 
         val NEWS_SOURCE_ID = "0";
 

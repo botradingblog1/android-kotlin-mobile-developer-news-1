@@ -1,16 +1,13 @@
-{
-  "news_sources": [
-    {
-      "id": 1,
-      "title": "news_source_name 1",
-      "description" : "description",
-      "url": "http://google.com"
-    },
-    {
-      "id": 1,
-      "title": "news_source_name",
-      "description" : "description",
-      "name": "news_source_name"
-    }
-  ]
-}
+[{
+  "id": 1,
+  "title": "Android Developers Blog",
+  "description": "description",
+  "url": "http://feeds.feedburner.com/blogspot/hsDu"
+},
+  {
+    "id": 2,
+    "title": "Android Authority Android Development",
+    "description": "description",
+    "url": "https://www.androidauthority.com/android-development/feed/"
+  }
+]
