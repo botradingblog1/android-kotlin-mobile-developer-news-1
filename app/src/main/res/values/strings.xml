@@ -7,4 +7,11 @@
     <string name="title_newssource_list">NewsSources</string>
     <string name="title_newssource_detail">NewsSource Detail</string>
 
+    <!-- ALERTS -->
+    <string name="network_error_title">Network Error</string>
+    <string name="network_error_message">Please make sure you are connected to a network with internet access</string>
+
+    <!-- BUTTONS -->
+    <string name="button_ok">OK</string>
+
 </resources>

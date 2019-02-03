@@ -2,19 +2,18 @@ package com.justmobiledev.mobile_developer_news.main_menu
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.justmobiledev.mobile_developer_news.R
 import com.justmobiledev.mobile_developer_news.constants.Constants
 import com.justmobiledev.mobile_developer_news.models.NewsMenuItem
 import com.justmobiledev.mobile_developer_news.news_source_list.NewsSourceDetailFragment
 import com.justmobiledev.mobile_developer_news.news_source_list.NewsSourceListActivity
 
-import kotlinx.android.synthetic.main.activity_main_menu_list.*
 import kotlinx.android.synthetic.main.item_list_content.view.*
 import kotlinx.android.synthetic.main.main_menu_list.*
 
@@ -31,8 +30,8 @@ class MainMenuListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu_list)
 
-        setSupportActionBar(toolbar)
-        toolbar.title = title
+        //setSupportActionBar(toolbar)
+        //toolbar.title = title
 
         if (main_menu_detail_container != null) {
             // The detail container view will be present only in the

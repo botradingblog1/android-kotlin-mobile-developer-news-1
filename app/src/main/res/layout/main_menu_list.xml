@@ -30,7 +30,7 @@
             android:layout_marginRight="@dimen/vertical_item_margin_med"
             android:background="@android:color/white"/>
 
-    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
                                             xmlns:app="http://schemas.android.com/apk/res-auto"
                                             xmlns:tools="http://schemas.android.com/tools"
                                             android:id="@+id/rc_main_menu_list"

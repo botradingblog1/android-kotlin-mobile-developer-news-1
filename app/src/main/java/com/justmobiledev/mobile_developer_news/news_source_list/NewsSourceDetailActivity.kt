@@ -1,69 +1,124 @@
 package com.justmobiledev.mobile_developer_news.news_source_list
 
-import android.content.Intent
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
-import android.app.Activity
-import android.support.v7.app.AppCompatActivity
+import android.text.Html
+import android.text.method.LinkMovementMethod
+import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.justmobiledev.mobile_developer_news.R
-import kotlinx.android.synthetic.main.activity_newssource_detail.*
+import com.justmobiledev.mobile_developer_news.R.id.toolbar
+import kotlinx.android.synthetic.main.activity_news_source_detail.*
 
-/**
- * An activity representing a single NewsSourceItem detail screen. This
- * activity is only used on narrow width devices. On tablet-size devices,
- * item details are presented side-by-side with a list of items
- * in a [NewsSourceListActivity].
- */
 class NewsSourceDetailActivity : AppCompatActivity() {
+
+    private lateinit var adapter: NewsArticleAdapter
+    private lateinit var viewModel: NewsSourceViewModel
+
+    private val isNetworkAvailable: Boolean
+        get() {
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_newssource_detail)
+        setContentView(R.layout.activity_news_source_detail)
 
-        // Show the Up button in the action bar.
-        actionBar?.setDisplayHomeAsUpEnabled(true)
+        viewModel = ViewModelProviders.of(this@NewsSourceDetailActivity).get(NewsSourceViewModel::class.java)
 
-        // savedInstanceState is non-null when there is fragment state
-        // saved from previous configurations of this activity
-        // (e.g. when rotating the screen from portrait to landscape).
-        // In this case, the fragment will automatically be re-added
-        // to its container so we don't need to manually add it.
-        // For more information, see the Fragments API guide at:
-        //
-        // http://developer.android.com/guide/components/fragments.html
-        //
-        if (savedInstanceState == null) {
-            // Create the detail fragment and add it to the activity
-            // using a fragment transaction.
-            val fragment = NewsSourceDetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(
-                        NewsSourceDetailFragment.ARG_ITEM_ID,
-                        intent.getStringExtra(NewsSourceDetailFragment.ARG_ITEM_ID)
-                    )
-                }
+        setSupportActionBar(toolbar)
+
+        recycler_view.layoutManager = LinearLayoutManager(this)
+        recycler_view.itemAnimator = DefaultItemAnimator()
+        recycler_view.setHasFixedSize(true)
+
+        // Load News Articles
+        viewModel.getArticleList().observe(this, Observer { articles ->
+
+            if (articles != null) {
+                adapter = NewsArticleAdapter(articles)
+                recycler_view.adapter = adapter
+                adapter.notifyDataSetChanged()
+                progressBar.visibility = View.GONE
+                swipe_layout.isRefreshing = false
             }
 
-            this.supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.newssource_detail_container, fragment)
-                .commit()
+        })
 
+        viewModel.snackbar.observe(this, Observer { value ->
+            value?.let {
+                Snackbar.make(root_layout, value, Snackbar.LENGTH_LONG).show()
+                viewModel.onSnackbarShowed ()
+            }
+
+        })
+
+        swipe_layout.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimaryDark)
+        swipe_layout.canChildScrollUp()
+        swipe_layout.setOnRefreshListener {
+            adapter.articles.clear()
+            adapter.notifyDataSetChanged()
+            swipe_layout.isRefreshing = true
+            viewModel.fetchFeed()
+        }
+
+        // If no network -> display alert
+        if (!isNetworkAvailable) {
+
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage(R.string.network_error_message)
+                .setTitle(R.string.network_error_title)
+                .setCancelable(false)
+                .setPositiveButton(R.string.button_ok)
+                {dialog, which ->
+                    finish()
+                }
+
+
+            val alert = builder.create()
+            alert.show()
+
+        } else if (isNetworkAvailable) {
+            // Fetch the news articles
+            viewModel.fetchFeed()
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem) =
-        when (item.itemId) {
-            android.R.id.home -> {
-                // This ID represents the Home or Up button. In the case of this
-                // activity, the Up button is shown. For
-                // more details, see the Navigation pattern on Android Design:
-                //
-                // http://developer.android.com/design/patterns/navigation.html#up-vs-back
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        //menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
 
-                navigateUpTo(Intent(this, NewsSourceListActivity::class.java))
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val id = item.itemId
+
+       /*  if (id == R.id.action_settings) {
+            val alertDialog = androidx.appcompat.app.AlertDialog.Builder(this@NewsSourceDetailActivity).create()
+            alertDialog.setTitle(R.string.app_name)
+            alertDialog.setMessage(
+                Html.fromHtml(this@NewsSourceDetailActivity.getString(R.string.info_text) +
+                        " <a href='http://github.com/prof18/RSS-Parser'>GitHub.</a>" +
+                        this@MainActivity.getString(R.string.author)))
+            alertDialog.setButton(androidx.appcompat.app.AlertDialog.BUTTON_NEUTRAL, "OK"
+            ) { dialog, which -> dialog.dismiss() }
+            alertDialog.show()
+
+            (alertDialog.findViewById<View>(android.R.id.message) as TextView).movementMethod = LinkMovementMethod.getInstance()
+        }*/
+
+        return super.onOptionsItemSelected(item)
+    }
 }

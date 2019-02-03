@@ -1,7 +1,7 @@
 package com.justmobiledev.mobile_developer_news.news_source_list
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,19 +20,25 @@ class NewsSourceDetailFragment : Fragment() {
     /**
      * The dummy content this fragment is presenting.
      */
-    private var item: NewsSourceItem? = null
+    private var newsItemId = 0
+    private var newsItemTitle = ""
+    private var newsItemUrl = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /* arguments?.let {
-            if (it.containsKey(ARG_ITEM_ID)) {
-                // Load the dummy content specified by the fragment
-                // arguments. In a real-world scenario, use a Loader
-                // to load content from a content provider.
-                item = NewsSourceItem.ItemMap[it.getString(ARG_ITEM_ID)]
+        arguments?.let {
+            if (it.containsKey(NewsSourceItem.NEWS_SOURCE_ITEM_ID)) {
+                newsItemId = it.getInt(NewsSourceItem.NEWS_SOURCE_ITEM_ID)
             }
-        }*/
+            if (it.containsKey(NewsSourceItem.NEWS_SOURCE_ITEM_TITLE)) {
+                newsItemTitle = it.getString(NewsSourceItem.NEWS_SOURCE_ITEM_TITLE)
+            }
+            if (it.containsKey(NewsSourceItem.NEWS_SOURCE_ITEM_URL)) {
+                newsItemUrl = it.getString(NewsSourceItem.NEWS_SOURCE_ITEM_URL)
+            }
+        }
     }
 
     override fun onCreateView(

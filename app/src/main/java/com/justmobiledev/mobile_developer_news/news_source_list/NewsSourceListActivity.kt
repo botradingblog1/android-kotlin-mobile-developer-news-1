@@ -3,16 +3,16 @@ package com.justmobiledev.mobile_developer_news.news_source_list
 import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
-import android.support.annotation.RawRes
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.RawRes
+import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.support.v4.app.NavUtils
+import androidx.core.app.NavUtils
 import android.util.Log
 import android.view.MenuItem
+import androidx.recyclerview.widget.RecyclerView
 import com.github.salomonbrys.kotson.fromJson
 import com.google.gson.Gson
 import com.justmobiledev.mobile_developer_news.R
@@ -116,11 +116,13 @@ class NewsSourceListActivity : AppCompatActivity() {
 
         init {
             onClickListener = View.OnClickListener { v ->
-                val item = v.tag as NewsSourceItem.NewsSourceItem
+                val item = v.tag as NewsSourceItem
                 if (twoPane) {
                     val fragment = NewsSourceDetailFragment().apply {
                         arguments = Bundle().apply {
-                            putString(NewsSourceDetailFragment.ARG_ITEM_ID, item.id)
+                            putInt(NewsSourceItem.NEWS_SOURCE_ITEM_ID, item.id)
+                            putString(NewsSourceItem.NEWS_SOURCE_ITEM_TITLE, item.title)
+                            putString(NewsSourceItem.NEWS_SOURCE_ITEM_URL, item.url)
                         }
                     }
                     parentActivity.supportFragmentManager
@@ -129,7 +131,9 @@ class NewsSourceListActivity : AppCompatActivity() {
                         .commit()
                 } else {
                     val intent = Intent(v.context, NewsSourceDetailActivity::class.java).apply {
-                        putExtra(NewsSourceDetailFragment.ARG_ITEM_ID, item.id)
+                        putExtra(NewsSourceItem.NEWS_SOURCE_ITEM_ID, item.id)
+                        putExtra(NewsSourceItem.NEWS_SOURCE_ITEM_TITLE, item.title)
+                        putExtra(NewsSourceItem.NEWS_SOURCE_ITEM_URL, item.url)
                     }
                     v.context.startActivity(intent)
                 }

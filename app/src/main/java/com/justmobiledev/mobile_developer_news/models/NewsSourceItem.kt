@@ -4,11 +4,16 @@ import java.util.ArrayList
 import java.util.HashMap
 
 class NewsSourceItem{
+    companion object {
+        val NEWS_SOURCE_ITEM_ID = "news_source_item_id"
+        val NEWS_SOURCE_ITEM_TITLE = "news_source_item_title"
+        val NEWS_SOURCE_ITEM_URL = "news_source_item_url"
+    }
 
-    val id = 0
-    val title = ""
-    val description = ""
-    val url = ""
+    var id = 0
+    var title = ""
+    var description = ""
+    var url = ""
 
 
     val Items: MutableList<NewsSourceItem> = ArrayList()
