@@ -1,0 +1,8 @@
+﻿<resources>
+    <string name="app_name">Mobile Developer News</string>
+
+    <!-- MAIN MENU -->
+    <string name="title_android_news">Android News</string>
+    <string name="title_ios_news">iOS News</string>
+
+</resources>

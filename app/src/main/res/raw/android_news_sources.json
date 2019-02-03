@@ -1,0 +1,12 @@
+{
+  "news_sources": [
+    {
+      "name": "news_source_name",
+      "url": "http://google.com"
+    },
+    {
+      "name": "news_source_name",
+      "name": "news_source_name"
+    }
+  ]
+}
