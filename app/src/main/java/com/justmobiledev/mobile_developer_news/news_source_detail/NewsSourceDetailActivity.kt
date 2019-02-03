@@ -16,6 +16,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.justmobiledev.mobile_developer_news.R
 import com.justmobiledev.mobile_developer_news.constants.Constants
 import com.justmobiledev.mobile_developer_news.models.NewsSourceItem
+import com.justmobiledev.mobile_developer_news.utils.NetworkUtils
 import kotlinx.android.synthetic.main.activity_news_source_detail.*
 
 class NewsSourceDetailActivity : AppCompatActivity() {
@@ -74,7 +75,7 @@ class NewsSourceDetailActivity : AppCompatActivity() {
         }
 
         // If no network -> display alert
-        if (!isNetworkAvailable) {
+        if (!NetworkUtils.isNetworkAvailable(this)) {
 
             val builder = AlertDialog.Builder(this)
             builder.setMessage(R.string.network_error_message)
@@ -89,7 +90,7 @@ class NewsSourceDetailActivity : AppCompatActivity() {
             val alert = builder.create()
             alert.show()
 
-        } else if (isNetworkAvailable) {
+        } else if (NetworkUtils.isNetworkAvailable(this)) {
             // Fetch the news articles
             viewModel.fetchFeed(newsSourceItem.url)
         }
@@ -121,10 +122,5 @@ class NewsSourceDetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private val isNetworkAvailable: Boolean
-        get() {
-            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val activeNetworkInfo = connectivityManager.activeNetworkInfo
-            return activeNetworkInfo != null && activeNetworkInfo.isConnected
-        }
+
 }

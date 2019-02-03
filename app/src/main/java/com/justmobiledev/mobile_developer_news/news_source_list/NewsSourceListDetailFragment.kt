@@ -100,26 +100,16 @@ class NewsSourceListDetailFragment : Fragment() {
         init {
             onClickListener = View.OnClickListener { v ->
                 val item = v.tag as NewsSourceItem
-                //if (twoPane) {
-                    val fragment = NewsSourceDetailFragment()
-                        .apply {
-                            arguments = Bundle().apply {
-                                val args = Bundle()
-                                args.putParcelable(NewsSourceItem.NEWS_SOURCE_ITEM_ID, item)
-                            }
-                        }
-                    parentActivity.supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.newssource_detail_container, fragment)
-                        .commit()
-                //}
-                //
-                /* else {
-                    val intent = Intent(v.context, NewsSourceDetailActivity::class.java).apply {
-                        putExtra(NewsSourceItem.NEWS_SOURCE_ITEM_ID, item)
-                    }
-                    v.context.startActivity(intent)
-                }*/
+                val fragment = NewsSourceDetailFragment()
+                val args = Bundle()
+                args.putParcelable(NewsSourceItem.NEWS_SOURCE_ITEM_ID, item)
+                fragment.arguments = args
+
+                parentActivity.supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.main_menu_detail_container, fragment)
+                    .commit()
+
             }
         }
 
