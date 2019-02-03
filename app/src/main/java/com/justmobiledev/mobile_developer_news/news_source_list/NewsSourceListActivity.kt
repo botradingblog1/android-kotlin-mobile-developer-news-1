@@ -8,21 +8,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.support.v4.app.NavUtils
+import android.app.ActionBar
+import android.view.MenuItem
 import com.justmobiledev.mobile_developer_news.R
-import com.justmobiledev.mobile_developer_news.news_reader.NewsReaderFragment
-import com.justmobiledev.mobile_developer_news.models.NewsMenuItem
-import com.justmobiledev.mobile_developer_news.news_reader.NewsReaderActivity
 
-import kotlinx.android.synthetic.main.activity_main_menu_list.*
-import kotlinx.android.synthetic.main.item_list_content.view.*
+import com.justmobiledev.mobile_developer_news.news_source_list.dummy.DummyContent
+import kotlinx.android.synthetic.main.activity_newssource_list.*
+import kotlinx.android.synthetic.main.newssource_list_content.view.*
+//import kotlinx.android.synthetic.main.newssource_list.*
 
-// Main Activity
+/**
+ * An activity representing a list of Pings. This activity
+ * has different presentations for handset and tablet-size devices. On
+ * handsets, the activity presents a list of items, which when touched,
+ * lead to a [NewsSourceDetailActivity] representing
+ * item details. On tablets, the activity presents the list of items and
+ * item details side-by-side using two vertical panes.
+ */
 class NewsSourceListActivity : AppCompatActivity() {
-
-    companion object {
-        val MENU_ANDROID_NEWS_ID = "1"
-        val MENU_IOS_NEWS_ID = "2"
-    }
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -32,98 +36,65 @@ class NewsSourceListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_news_source_list)
+        setContentView(R.layout.activity_newssource_list)
+        // Show the Up button in the action bar.
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        setSupportActionBar(toolbar)
-        toolbar.title = title
-
-        /* if (item_detail_container != null) {
+        if (newssource_detail_container != null) {
             // The detail container view will be present only in the
-            // large-screen layouts (res/layout-w900dp).
+            // large-screen layouts (res/values-w900dp).
             // If this view is present, then the
             // activity should be in two-pane mode.
             twoPane = true
         }
 
-        setupRecyclerView(item_list)
-
-        // Load Detail fragment
-        // Tablet Layout
-        if (twoPane) {
-            val fragment = NewsReaderFragment().apply {
-                arguments = Bundle().apply {
-                    putString(MainMenuDetailFragment.ARG_ITEM_ID, "0")
-                }
-            }
-            this.supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.item_detail_container, fragment)
-                .commit()
-
-        } else {
-            // Phone Layout
-            //val intent = Intent(this, NewsSourceListActivity::class.java)
-            //this.startActivity(intent)
-        }*/
+        setupRecyclerView(newssource_list)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem) =
+        when (item.itemId) {
+            android.R.id.home -> {
+                // This ID represents the Home or Up button. In the case of this
+                // activity, the Up button is shown. Use NavUtils to allow users
+                // to navigate up one level in the application structure. For
+                // more details, see the Navigation pattern on Android Design:
+                //
+                // http://developer.android.com/design/patterns/navigation.html#up-vs-back
+                NavUtils.navigateUpFromSameTask(this)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
-        val menuItems: MutableList<NewsMenuItem> = ArrayList()
-
-        // Create menu items
-        menuItems.add(0,
-            NewsMenuItem(
-                MENU_ANDROID_NEWS_ID,
-                getString(R.string.title_android_news),
-                ""
-            )
-        )
-        menuItems.add(0,
-            NewsMenuItem(
-                MENU_IOS_NEWS_ID,
-                getString(R.string.title_ios_news),
-                ""
-            )
-        )
-
-        // Set Menu items
-        recyclerView.adapter =
-                SimpleItemRecyclerViewAdapter(
-                    this,
-                    menuItems,
-                    twoPane
-                )
+        recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, twoPane)
     }
 
-    class SimpleItemRecyclerViewAdapter(private val parentActivity: NewsSourceListActivity,
-                                        private val values: List<NewsMenuItem>,
-                                        private val twoPane: Boolean) :
-            RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
+    class SimpleItemRecyclerViewAdapter(
+        private val parentActivity: NewsSourceListActivity,
+        private val values: List<DummyContent.DummyItem>,
+        private val twoPane: Boolean
+    ) :
+        RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder>() {
 
         private val onClickListener: View.OnClickListener
 
         init {
             onClickListener = View.OnClickListener { v ->
-                val item = v.tag as NewsMenuItem
-
-                // Tablet Layout
+                val item = v.tag as DummyContent.DummyItem
                 if (twoPane) {
-                    val fragment = NewsReaderFragment().apply {
+                    val fragment = NewsSourceDetailFragment().apply {
                         arguments = Bundle().apply {
-                            //putString(MainMenuDetailFragment.ARG_ITEM_ID, item.id)
-                            //putString(MainMenuDetailFragment.ARG_ITEM_NAME, item.title)
+                            putString(NewsSourceDetailFragment.ARG_ITEM_ID, item.id)
                         }
                     }
                     parentActivity.supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.item_detail_container, fragment)
+                        .replace(R.id.newssource_detail_container, fragment)
                         .commit()
-
                 } else {
-                    // Phone Layout
-                    val intent = Intent(v.context, NewsReaderActivity::class.java).apply {
-                        //putExtra(MainMenuDetailFragment.ARG_ITEM_ID, item.id)
-                        //putExtra(MainMenuDetailFragment.ARG_ITEM_NAME, item.title)
+                    val intent = Intent(v.context, NewsSourceDetailActivity::class.java).apply {
+                        putExtra(NewsSourceDetailFragment.ARG_ITEM_ID, item.id)
                     }
                     v.context.startActivity(intent)
                 }
@@ -132,14 +103,14 @@ class NewsSourceListActivity : AppCompatActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_list_content, parent, false)
+                .inflate(R.layout.newssource_list_content, parent, false)
             return ViewHolder(view)
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val item = values[position]
-            holder.idView.text = item.id.toString()
-            holder.contentView.text = item.title
+            holder.idView.text = item.id
+            holder.contentView.text = item.content
 
             with(holder.itemView) {
                 tag = item

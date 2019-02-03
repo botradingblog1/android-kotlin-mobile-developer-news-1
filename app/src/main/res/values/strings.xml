@@ -4,5 +4,7 @@
     <!-- MAIN MENU -->
     <string name="title_android_news">Android News</string>
     <string name="title_ios_news">iOS News</string>
+    <string name="title_newssource_list">NewsSources</string>
+    <string name="title_newssource_detail">NewsSource Detail</string>
 
 </resources>

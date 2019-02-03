@@ -1,52 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.justmobiledev.mobile_developer_news" >
+          package="com.justmobiledev.mobile_developer_news">
 
     <application
-        android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@drawable/appicon"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar" >
+            android:allowBackup="false"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@drawable/appicon"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme.NoActionBar">
         <activity
-                android:name="com.justmobiledev.mobile_developer_news.SplashActivity"
+                android:name=".SplashActivity"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:label="@string/app_name"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-                android:name="com.justmobiledev.mobile_developer_news.main_menu.MainMenuListActivity"
+                android:name=".main_menu.MainMenuListActivity"
                 android:label="@string/app_name">
         </activity>
         <activity
-            android:name="com.justmobiledev.mobile_developer_news.main_menu.NewsReaderActivity"
-            android:parentActivityName="com.justmobiledev.mobile_developer_news.main_menu.NewsSourceListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.justmobiledev.mobile_developer_news.main_menu.NewsSourceListActivity" />
-        </activity>
-        <activity
-                android:name="com.justmobiledev.mobile_developer_news.news_source_list.NewsSourceListActivity"
-                android:parentActivityName="com.justmobiledev.mobile_developer_news.main_menu.MainMenuListActivity"
+                android:name=".main_menu.NewsReaderActivity"
+                android:parentActivityName=".main_menu.NewsSourceListActivity"
                 android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.justmobiledev.mobile_developer_news.main_menu.NewsSourceListActivity" />
+                    android:value="com.justmobiledev.mobile_developer_news.main_menu.NewsSourceListActivity"/>
         </activity>
         <activity
-                android:name="com.justmobiledev.mobile_developer_news.news_reader.NewsReaderActivity"
-                android:parentActivityName="com.justmobiledev.mobile_developer_news.main_menu.NewsSourceListActivity"
+                android:name=".news_source_list.NewsSourceListActivity"
+                android:label="@string/title_newssource_list"
+                android:parentActivityName=".main_menu.MainMenuListActivity"
                 android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.justmobiledev.mobile_developer_news.main_menu.NewsSourceListActivity" />
+                    android:value="com.justmobiledev.mobile_developer_news.main_menu.NewsSourceListActivity"/>
+        </activity>
+        <activity
+                android:name=".news_reader.NewsReaderActivity"
+                android:parentActivityName=".main_menu.NewsSourceListActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.justmobiledev.mobile_developer_news.main_menu.NewsSourceListActivity"/>
+        </activity>
+        <activity
+                android:name=".news_source_list.NewsSourceDetailActivity"
+                android:label="@string/title_newssource_detail"
+                android:parentActivityName=".news_source_list.NewsSourceListActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.justmobiledev.mobile_developer_news.news_source_list.NewsSourceListActivity"/>
         </activity>
     </application>
 

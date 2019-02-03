@@ -11,6 +11,7 @@ import android.widget.TextView
 import com.justmobiledev.mobile_developer_news.R
 import com.justmobiledev.mobile_developer_news.constants.Constants
 import com.justmobiledev.mobile_developer_news.models.NewsMenuItem
+import com.justmobiledev.mobile_developer_news.news_source_list.NewsSourceDetailFragment
 import com.justmobiledev.mobile_developer_news.news_source_list.NewsSourceListActivity
 
 import kotlinx.android.synthetic.main.activity_main_menu_list.*
@@ -105,7 +106,7 @@ class MainMenuListActivity : AppCompatActivity() {
 
                 // Tablet Layout
                 if (twoPane) {
-                    val fragment = NewsSourceListFragment().apply {
+                    val fragment = NewsSourceDetailFragment().apply {
                         arguments = Bundle().apply {
                             putString(Constants.PAGE_ITEM_ID, item.id)
                             putString(Constants.PAGE_ITEM_NAME, item.title)
