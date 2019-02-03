@@ -14,13 +14,6 @@
     "url": "https://www.androidhive.info/feed/"
   },
   {
-    "id": 4,
-    "title": "Reddit",
-    "description": "News for Android developers with the who, what, where when and how of the Android community.",
-    "frequency" : "168 posts pwer week",
-    "url": "https://www.reddit.com/r/androiddev/.rss?format=xml"
-  },
-  {
     "id": 5,
     "title": "Google Android News",
     "description": "Comprehensive up-to-date news coverage on android development, aggregated from sources all over the world by Google News.",

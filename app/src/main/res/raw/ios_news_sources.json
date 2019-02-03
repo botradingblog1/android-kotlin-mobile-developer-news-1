@@ -13,13 +13,6 @@
     "url": "https://iosdevweekly.com/issues.rss"
   },
   {
-    "id": 3,
-    "title": "iOS Programming on Reddit",
-    "description": " A subreddit to share articles, code samples, open source projects and anything relating to iOS",
-    "frequency": "84 posts per week",
-    "url": "https://www.reddit.com/r/iOSProgramming/.rss"
-  },
-  {
     "id": 4,
     "title": "Ray Wenderlich | Tutorials for iPhone",
     "description": "Keep your Swift & iOS skills up-to-date via hands-on tutorials. Ray Wenderlich is a favorite of everyone on the V-Play team.",
