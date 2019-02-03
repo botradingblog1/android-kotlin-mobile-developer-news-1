@@ -28,9 +28,14 @@
         <item name="android:textSize">@dimen/font_size_body</item>
         <item name="android:textColor">@color/colorWhite</item>
     </style>
+    <style name="AppTheme.PageBodyGray">
+        <item name="android:textSize">@dimen/font_size_body</item>
+        <item name="android:textColor">@color/colorLightGrey</item>
+    </style>
     <style name="AppTheme.PageHeading1">
         <item name="android:textSize">@dimen/font_size_heading_1</item>
         <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textStyle">bold</item>
     </style>
     <style name="AppTheme.PageHeading2">
         <item name="android:textSize">13dp</item>

@@ -23,9 +23,6 @@ class NewsSourceDetailActivity : AppCompatActivity() {
     private lateinit var adapter: NewsArticleAdapter
     private lateinit var viewModel: NewsSourceViewModel
 
-    private var newsItemId = 0
-    private var newsItemTitle = ""
-    private var newsItemUrl = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,12 +37,10 @@ class NewsSourceDetailActivity : AppCompatActivity() {
         recycler_view.setHasFixedSize(true)
 
         // Get News Source into from intent
-        newsItemId = intent.getIntExtra(NewsSourceItem.NEWS_SOURCE_ITEM_ID, 0)
-        newsItemTitle = intent.getStringExtra(NewsSourceItem.NEWS_SOURCE_ITEM_TITLE)
-        newsItemUrl = intent.getStringExtra(NewsSourceItem.NEWS_SOURCE_ITEM_URL)
+        val newsSourceItem = intent.getParcelableExtra<NewsSourceItem>(NewsSourceItem.NEWS_SOURCE_ITEM_ID)
 
         // Set title
-        (this as? AppCompatActivity)?.supportActionBar?.title = newsItemTitle
+        (this as? AppCompatActivity)?.supportActionBar?.title = newsSourceItem.title
 
         // Load News Articles
         viewModel.getArticleList().observe(this, Observer { articles ->
@@ -75,7 +70,7 @@ class NewsSourceDetailActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
             swipe_layout.isRefreshing = true
             // Fetch news articles
-            viewModel.fetchFeed(newsItemUrl)
+            viewModel.fetchFeed(newsSourceItem.url)
         }
 
         // If no network -> display alert
@@ -96,7 +91,7 @@ class NewsSourceDetailActivity : AppCompatActivity() {
 
         } else if (isNetworkAvailable) {
             // Fetch the news articles
-            viewModel.fetchFeed(newsItemUrl)
+            viewModel.fetchFeed(newsSourceItem.url)
         }
     }
 

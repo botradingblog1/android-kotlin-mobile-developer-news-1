@@ -20,7 +20,7 @@ import com.justmobiledev.mobile_developer_news.news_source_detail.NewsSourceDeta
 import com.justmobiledev.mobile_developer_news.news_source_detail.NewsSourceDetailFragment
 
 import kotlinx.android.synthetic.main.activity_newssource_list.*
-import kotlinx.android.synthetic.main.newssource_list_content.view.*
+import kotlinx.android.synthetic.main.news_source_list_content.view.*
 //import kotlinx.android.synthetic.main.newssource_list.*
 
 /**
@@ -121,9 +121,8 @@ class NewsSourceListActivity : AppCompatActivity() {
                     val fragment = NewsSourceDetailFragment()
                         .apply {
                         arguments = Bundle().apply {
-                            putInt(NewsSourceItem.NEWS_SOURCE_ITEM_ID, item.id)
-                            putString(NewsSourceItem.NEWS_SOURCE_ITEM_TITLE, item.title)
-                            putString(NewsSourceItem.NEWS_SOURCE_ITEM_URL, item.url)
+                            val args = Bundle()
+                            args.putParcelable(NewsSourceItem.NEWS_SOURCE_ITEM_ID, item)
                         }
                     }
                     parentActivity.supportFragmentManager
@@ -132,9 +131,7 @@ class NewsSourceListActivity : AppCompatActivity() {
                         .commit()
                 } else {
                     val intent = Intent(v.context, NewsSourceDetailActivity::class.java).apply {
-                        putExtra(NewsSourceItem.NEWS_SOURCE_ITEM_ID, item.id)
-                        putExtra(NewsSourceItem.NEWS_SOURCE_ITEM_TITLE, item.title)
-                        putExtra(NewsSourceItem.NEWS_SOURCE_ITEM_URL, item.url)
+                        putExtra(NewsSourceItem.NEWS_SOURCE_ITEM_ID, item)
                     }
                     v.context.startActivity(intent)
                 }
@@ -143,14 +140,16 @@ class NewsSourceListActivity : AppCompatActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.newssource_list_content, parent, false)
+                .inflate(R.layout.news_source_list_content, parent, false)
             return ViewHolder(view)
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val item = values[position]
             holder.idView.text = item.id.toString()
-            holder.contentView.text = item.title
+            holder.titleView.text = item.title
+            holder.descriptionView.text = item.description
+            holder.frequencyView.text = item.frequency
 
             with(holder.itemView) {
                 tag = item
@@ -162,7 +161,10 @@ class NewsSourceListActivity : AppCompatActivity() {
 
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val idView: TextView = view.id_text
-            val contentView: TextView = view.content
+            val titleView: TextView = view.title
+            val descriptionView : TextView = view.description
+            val frequencyView : TextView = view.frequency
+            //val contentView: TextView = view.content
         }
     }
 }

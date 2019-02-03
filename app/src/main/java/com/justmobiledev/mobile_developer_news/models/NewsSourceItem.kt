@@ -1,20 +1,25 @@
 package com.justmobiledev.mobile_developer_news.models
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import java.util.ArrayList
 import java.util.HashMap
 
-class NewsSourceItem{
+
+@Parcelize
+data class NewsSourceItem(
+    val id: Int,
+    val title: String,
+    val description: String,
+    val frequency: String,
+    val url: String) : Parcelable
+{
     companion object {
         val NEWS_SOURCE_ITEM_ID = "news_source_item_id"
         val NEWS_SOURCE_ITEM_TITLE = "news_source_item_title"
+        val NEWS_SOURCE_ITEM_DESCRIPTION = "news_source_item_description"
         val NEWS_SOURCE_ITEM_URL = "news_source_item_url"
     }
-
-    var id = 0
-    var title = ""
-    var description = ""
-    var url = ""
-
 
     val Items: MutableList<NewsSourceItem> = ArrayList()
 
@@ -26,10 +31,10 @@ class NewsSourceItem{
     init {
     }
 
-    private fun addItem(item: NewsSourceItem) {
+    /* private fun addItem(item: NewsSourceItem) {
         Items.add(item)
         ItemMap.put(item.id, item)
-    }
+    }*/
 
     /*private fun createDummyItem(position: Int): NewsSourceItem {
         return NewsSourceItem(position.toString(), "Item " + position, makeDetails(position))

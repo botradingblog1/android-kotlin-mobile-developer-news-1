@@ -1,13 +1,51 @@
 [{
   "id": 1,
   "title": "Apple Developer News",
-  "description": "description",
+  "description": "Apple Developer News feed provided by Apple, Inc.",
+  "frequency": "1 post per week",
   "url": "https://developer.apple.com/news/rss/news.rss"
 },
   {
     "id": 2,
     "title": "iOS Dev Weekly",
-    "description": "description",
+    "description": "Hand-picked round up of the best iOS development links every week. Curated by Dave Verwer and published every Friday",
+    "frequency": "4 posts per week",
     "url": "https://iosdevweekly.com/issues.rss"
+  },
+  {
+    "id": 3,
+    "title": "iOS Programming on Reddit",
+    "description": " A subreddit to share articles, code samples, open source projects and anything relating to iOS",
+    "frequency": "84 posts per week",
+    "url": "https://www.reddit.com/r/iOSProgramming/.rss"
+  },
+  {
+    "id": 4,
+    "title": "Ray Wenderlich | Tutorials for iPhone",
+    "description": "Keep your Swift & iOS skills up-to-date via hands-on tutorials. Ray Wenderlich is a favorite of everyone on the V-Play team.",
+    "frequency": "11 posts per week",
+    "url": "http://raywenderlich.com/feed"
+  },
+  {
+    "id": 5,
+    "title": "AppCoda",
+    "description": "AppCoda is an iOS programming blog. Our mission is to develop high quality and easy-to-read iOS programming tutorials in both Swift and Objective-C for anyone who want to learn iOS programming and pursue app development.",
+    "frequency": "3 posts per week",
+    "url": "http://feeds.feedburner.com/appcoda"
+  },
+  {
+    "id": 6,
+    "title": "Big Nerd Ranch",
+    "description": "Our blog offers app development and design tutorials, tips and tricks for software engineering and insights for team training and mobile technology.",
+    "frequency": "1 post per week",
+    "url": "https://www.bignerdranch.com/feed.xml"
+  },
+  {
+    "id": 7,
+    "title": "Little Bites of Cocoa",
+    "description": "Tips and techniques for iOS and Mac development, weekday mornings at 9:42 AM. The goal of each of these 'bites' is to give the reader a brief overview or explanation of a particular concept, technique, or tool.",
+    "frequency": "4 posts per week",
+    "url": "https://littlebitesofcocoa.com/rss"
   }
+
 ]

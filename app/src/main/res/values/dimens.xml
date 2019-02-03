@@ -12,5 +12,6 @@
     <dimen name="page_heading_font_size">22sp</dimen>
     <dimen name="font_size_body">12sp</dimen>
     <dimen name="font_size_heading_1">14sp</dimen>
-
+    <dimen name="font_size_small">10sp</dimen>
+    <dimen name="widget_layout_margin">4dp</dimen>
 </resources>
