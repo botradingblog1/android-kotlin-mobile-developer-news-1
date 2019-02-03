@@ -18,16 +18,18 @@
 -->
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                   style="@style/CardView.Light"
+                                   style="@style/CardView.Dark"
                                    android:layout_width="match_parent"
                                    android:layout_height="wrap_content"
+                                   android:background="@color/colorPrimary"
                                    android:layout_marginEnd="8dp"
                                    android:layout_marginStart="8dp"
                                    android:layout_marginTop="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
                                                        android:layout_width="match_parent"
-                                                       android:layout_height="wrap_content">
+                                                       android:layout_height="wrap_content"
+                                                       android:background="@color/colorPrimary">
 
         <TextView
                 android:id="@+id/title"
@@ -37,7 +39,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="#DE000000"
+                android:textColor="@color/colorWhite"
                 app:layout_constraintEnd_toStartOf="@+id/image"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +52,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#8A000000"
+                android:textColor="@color/colorLightGrey"
                 app:layout_constraintEnd_toStartOf="@+id/image"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -73,7 +75,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="24dp"
-                android:textColor="#DE000000"
+                android:textColor="@color/colorLightGrey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

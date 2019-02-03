@@ -64,6 +64,13 @@ class NewsArticleAdapter(val articles: MutableList<Article>) : RecyclerView.Adap
             itemView.categories.text = categories
 
             itemView.setOnClickListener {
+
+                // Determine content to display
+                var contentStr = article.content
+                if (contentStr == null){
+                    contentStr = article.description
+                }
+
                 //show article content inside a dialog
                 val articleView = WebView(itemView.context)
 
@@ -74,7 +81,7 @@ class NewsArticleAdapter(val articles: MutableList<Article>) : RecyclerView.Adap
                 articleView.webChromeClient = WebChromeClient()
                 articleView.loadDataWithBaseURL(null, "<style>img{display: inline; height: auto; max-width: 100%;} " +
 
-                        "</style>\n" + "<style>iframe{ height: auto; width: auto;}" + "</style>\n" + article.content, null, "utf-8", null)
+                        "</style>\n" + "<style>iframe{ height: auto; width: auto;}" + "</style>\n" + contentStr, null, "utf-8", null)
 
                 val alertDialog = androidx.appcompat.app.AlertDialog.Builder(itemView.context).create()
                 alertDialog.setTitle(article.title)

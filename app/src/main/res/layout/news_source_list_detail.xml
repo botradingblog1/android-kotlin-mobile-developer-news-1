@@ -6,4 +6,5 @@
           android:layout_height="match_parent"
           android:padding="16dp"
           android:textIsSelectable="true"
+          android:textColor="@color/colorWhite"
           tools:context="com.justmobiledev.mobile_developer_news.news_source_detail.NewsSourceDetailFragment"/>

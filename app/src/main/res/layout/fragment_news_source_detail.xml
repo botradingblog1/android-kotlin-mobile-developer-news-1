@@ -5,6 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/root_layout"
+        android:background="@color/colorPrimary"
         android:paddingTop="50dp">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -16,7 +17,7 @@
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#EEEEEE"
+                android:background="@color/colorPrimary"
                 tools:context=".ui.MainActivity" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
@@ -28,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:indeterminate="true"
-            android:indeterminateTint="@color/colorPrimary"
+            android:indeterminateTint="@color/colorWhite"
             android:layout_centerInParent="true"
     />
 
