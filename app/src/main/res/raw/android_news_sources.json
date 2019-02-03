@@ -1,13 +1,64 @@
 [{
   "id": 1,
   "title": "Android Developers Blog",
-  "description": "description",
+  "description": "The Android Developers Blog is the official blog of the Android Platform and it’s the first place to check for Android announcements.",
+  "frequency" : "2 posts per week",
   "url": "http://feeds.feedburner.com/blogspot/hsDu"
 },
   {
     "id": 2,
     "title": "Android Authority Android Development",
-    "description": "description",
+    "description": "Android Authority blog dedicated to providing expert tips, Android Development news, reviews and how to guides",
+    "frequency" : "2 posts per week",
     "url": "https://www.androidauthority.com/android-development/feed/"
+  },
+  {
+    "id": 3,
+    "title": "AndroidHive",
+    "description": "AndroidHive is beginner's paradise for android tutorials, tips & tricks, games, hacks and super cool advanced topics along with full source code at single place. ",
+    "frequency" : "2 posts per month",
+    "url": "https://www.androidhive.info/feed/"
+  },
+  {
+    "id": 4,
+    "title": "Reddit",
+    "description": "News for Android developers with the who, what, where when and how of the Android community.",
+    "frequency" : "168 posts pwer week",
+    "url": "https://www.reddit.com/r/androiddev/.rss?format=xml"
+  },
+  {
+    "id": 5,
+    "title": "Google Android News",
+    "description": "Comprehensive up-to-date news coverage on android development, aggregated from sources all over the world by Google News.",
+    "frequency" : "24 posts per week",
+    "url": "https://news.google.com/rss/search?cf=all&pz=1&q=android+developer&hl=en-US&gl=US&ceid=US:en"
+  },
+  {
+    "id": 6,
+    "title": "Android Arsenal",
+    "description": "A categorized directory of libraries and tools for Android.",
+    "frequency" : "11 posts per week",
+    "url": "https://android-arsenal.com/rss"
+  },
+  {
+    "id": 7,
+    "title": "Android Weekly",
+    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
+    "frequency" : "1 post per week",
+    "url": "https://us2.campaign-archive.com/feed?u=887caf4f48db76fd91e20a06d&id=4eb677ad19"
+  },
+  {
+    "id": 8,
+    "title": "The Commons Blog",
+    "description": "The CommonsBlog covers everything to do with Android and updates every couple of days.",
+    "frequency" : "1 post per week",
+    "url": "https://commonsware.com/blog/feed.atom"
+  },
+  {
+    "id": 9,
+    "title": "Android-er",
+    "description": "Android-er is all about android programming development tutorial examples.",
+    "frequency" : "3 posts per month",
+    "url": "http://feeds.feedburner.com/Android-er"
   }
 ]

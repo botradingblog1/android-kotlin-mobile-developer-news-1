@@ -13,5 +13,5 @@
     <dimen name="font_size_body">16sp</dimen>
     <dimen name="font_size_small">12sp</dimen>
     <dimen name="font_size_heading_1">20sp</dimen>
-    <dimen name="widget_layout_margin">10dp</dimen>
+    <dimen name="widget_layout_margin">12dp</dimen>
 </resources>

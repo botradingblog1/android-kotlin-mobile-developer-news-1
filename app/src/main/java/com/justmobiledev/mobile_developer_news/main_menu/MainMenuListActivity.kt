@@ -70,15 +70,16 @@ class MainMenuListActivity : AppCompatActivity() {
         // Create menu items
         menuItems.add(0,
             NewsMenuItem(
-                Constants.ANDROID_NEWS_ID,
-                getString(R.string.title_android_news),
+                Constants.IOS_NEWS_ID,
+                getString(R.string.title_ios_news),
                 ""
             )
         )
+
         menuItems.add(0,
             NewsMenuItem(
-                Constants.IOS_NEWS_ID,
-                getString(R.string.title_ios_news),
+                Constants.ANDROID_NEWS_ID,
+                getString(R.string.title_android_news),
                 ""
             )
         )
