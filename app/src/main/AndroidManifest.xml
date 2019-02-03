@@ -53,7 +53,7 @@
                     android:value="com.justmobiledev.mobile_developer_news.main_menu.NewsSourceListActivity"/>
         </activity>
         <activity
-                android:name=".news_source_list.NewsSourceDetailActivity"
+                android:name=".news_source_detail.NewsSourceDetailActivity"
                 android:label="@string/title_newssource_detail"
                 android:parentActivityName=".news_source_list.NewsSourceListActivity">
             <meta-data

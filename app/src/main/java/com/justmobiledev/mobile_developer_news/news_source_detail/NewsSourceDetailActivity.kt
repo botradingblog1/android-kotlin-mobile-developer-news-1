@@ -1,14 +1,11 @@
-package com.justmobiledev.mobile_developer_news.news_source_list
+package com.justmobiledev.mobile_developer_news.news_source_detail
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
-import android.text.Html
-import android.text.method.LinkMovementMethod
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -17,7 +14,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.justmobiledev.mobile_developer_news.R
-import com.justmobiledev.mobile_developer_news.R.id.toolbar
+import com.justmobiledev.mobile_developer_news.constants.Constants
+import com.justmobiledev.mobile_developer_news.models.NewsSourceItem
 import kotlinx.android.synthetic.main.activity_news_source_detail.*
 
 class NewsSourceDetailActivity : AppCompatActivity() {
@@ -25,12 +23,9 @@ class NewsSourceDetailActivity : AppCompatActivity() {
     private lateinit var adapter: NewsArticleAdapter
     private lateinit var viewModel: NewsSourceViewModel
 
-    private val isNetworkAvailable: Boolean
-        get() {
-            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val activeNetworkInfo = connectivityManager.activeNetworkInfo
-            return activeNetworkInfo != null && activeNetworkInfo.isConnected
-        }
+    private var newsItemId = 0
+    private var newsItemTitle = ""
+    private var newsItemUrl = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +38,14 @@ class NewsSourceDetailActivity : AppCompatActivity() {
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.itemAnimator = DefaultItemAnimator()
         recycler_view.setHasFixedSize(true)
+
+        // Get News Source into from intent
+        newsItemId = intent.getIntExtra(NewsSourceItem.NEWS_SOURCE_ITEM_ID, 0)
+        newsItemTitle = intent.getStringExtra(NewsSourceItem.NEWS_SOURCE_ITEM_TITLE)
+        newsItemUrl = intent.getStringExtra(NewsSourceItem.NEWS_SOURCE_ITEM_URL)
+
+        // Set title
+        (this as? AppCompatActivity)?.supportActionBar?.title = newsItemTitle
 
         // Load News Articles
         viewModel.getArticleList().observe(this, Observer { articles ->
@@ -71,7 +74,8 @@ class NewsSourceDetailActivity : AppCompatActivity() {
             adapter.articles.clear()
             adapter.notifyDataSetChanged()
             swipe_layout.isRefreshing = true
-            viewModel.fetchFeed()
+            // Fetch news articles
+            viewModel.fetchFeed(newsItemUrl)
         }
 
         // If no network -> display alert
@@ -92,7 +96,7 @@ class NewsSourceDetailActivity : AppCompatActivity() {
 
         } else if (isNetworkAvailable) {
             // Fetch the news articles
-            viewModel.fetchFeed()
+            viewModel.fetchFeed(newsItemUrl)
         }
     }
 
@@ -121,4 +125,11 @@ class NewsSourceDetailActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
+
+    private val isNetworkAvailable: Boolean
+        get() {
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected
+        }
 }

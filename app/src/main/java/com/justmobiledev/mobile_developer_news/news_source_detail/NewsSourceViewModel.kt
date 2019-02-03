@@ -1,4 +1,4 @@
-package com.justmobiledev.mobile_developer_news.news_source_list
+package com.justmobiledev.mobile_developer_news.news_source_detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,11 +12,8 @@ import kotlinx.coroutines.launch
 
 class NewsSourceViewModel : ViewModel(){
 
-    private val url = "https://www.androidauthority.com/feed"
-
     private val viewModelJob = Job()
     private val coroutineScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-
     private lateinit var articleListLive: MutableLiveData<MutableList<Article>>
 
     private val _snackbar = MutableLiveData<String>()
@@ -44,7 +41,7 @@ class NewsSourceViewModel : ViewModel(){
         viewModelJob.cancel()
     }
 
-    fun fetchFeed() {
+    fun fetchFeed(url : String) {
         coroutineScope.launch(Dispatchers.Main) {
             try {
                 val parser = Parser()

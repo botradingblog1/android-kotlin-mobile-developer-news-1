@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.justmobiledev.mobile_developer_news.R
 import com.justmobiledev.mobile_developer_news.constants.Constants
 import com.justmobiledev.mobile_developer_news.models.NewsMenuItem
-import com.justmobiledev.mobile_developer_news.news_source_list.NewsSourceDetailFragment
+import com.justmobiledev.mobile_developer_news.news_source_detail.NewsSourceDetailFragment
 import com.justmobiledev.mobile_developer_news.news_source_list.NewsSourceListActivity
 
 import kotlinx.android.synthetic.main.item_list_content.view.*
@@ -105,7 +105,8 @@ class MainMenuListActivity : AppCompatActivity() {
 
                 // Tablet Layout
                 if (twoPane) {
-                    val fragment = NewsSourceDetailFragment().apply {
+                    val fragment = NewsSourceDetailFragment()
+                        .apply {
                         arguments = Bundle().apply {
                             putInt(Constants.PAGE_ITEM_ID, item.id)
                             putString(Constants.PAGE_ITEM_NAME, item.title)

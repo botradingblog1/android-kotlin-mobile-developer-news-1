@@ -1,4 +1,4 @@
-package com.justmobiledev.mobile_developer_news.news_source_list
+package com.justmobiledev.mobile_developer_news.news_source_detail
 
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
@@ -23,7 +23,7 @@ class NewsArticleAdapter(val articles: MutableList<Article>) : RecyclerView.Adap
 
     override fun getItemCount() = articles.size
 
-    override fun onBindViewHolder(holder: NewsArticleAdapter.ViewHolder, position: Int) = holder.bind(articles[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(articles[position])
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(article: Article) {

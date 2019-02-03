@@ -1,4 +1,4 @@
-package com.justmobiledev.mobile_developer_news.news_source_list
+package com.justmobiledev.mobile_developer_news.news_source_detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.justmobiledev.mobile_developer_news.R
 import com.justmobiledev.mobile_developer_news.models.NewsSourceItem
-import kotlinx.android.synthetic.main.newssource_detail.view.*
 
 /**
  * A fragment representing a single NewsSourceItem detail screen.
@@ -47,19 +46,6 @@ class NewsSourceDetailFragment : Fragment() {
     ): View? {
         val rootView = inflater.inflate(R.layout.newssource_detail, container, false)
 
-        // Show the dummy content as text in a TextView.
-        /*item?.let {
-            rootView.newssource_detail.text = it.details
-        }*/
-
         return rootView
-    }
-
-    companion object {
-        /**
-         * The fragment argument representing the item ID that this fragment
-         * represents.
-         */
-        const val ARG_ITEM_ID = "item_id"
     }
 }

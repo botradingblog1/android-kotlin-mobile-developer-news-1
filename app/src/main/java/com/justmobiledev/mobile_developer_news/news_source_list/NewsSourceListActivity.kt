@@ -1,9 +1,7 @@
 package com.justmobiledev.mobile_developer_news.news_source_list
 
 import android.content.Intent
-import android.content.res.Resources
 import android.os.Bundle
-import androidx.annotation.RawRes
 import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +16,8 @@ import com.google.gson.Gson
 import com.justmobiledev.mobile_developer_news.R
 import com.justmobiledev.mobile_developer_news.constants.Constants
 import com.justmobiledev.mobile_developer_news.models.NewsSourceItem
+import com.justmobiledev.mobile_developer_news.news_source_detail.NewsSourceDetailActivity
+import com.justmobiledev.mobile_developer_news.news_source_detail.NewsSourceDetailFragment
 
 import kotlinx.android.synthetic.main.activity_newssource_list.*
 import kotlinx.android.synthetic.main.newssource_list_content.view.*
@@ -118,7 +118,8 @@ class NewsSourceListActivity : AppCompatActivity() {
             onClickListener = View.OnClickListener { v ->
                 val item = v.tag as NewsSourceItem
                 if (twoPane) {
-                    val fragment = NewsSourceDetailFragment().apply {
+                    val fragment = NewsSourceDetailFragment()
+                        .apply {
                         arguments = Bundle().apply {
                             putInt(NewsSourceItem.NEWS_SOURCE_ITEM_ID, item.id)
                             putString(NewsSourceItem.NEWS_SOURCE_ITEM_TITLE, item.title)
