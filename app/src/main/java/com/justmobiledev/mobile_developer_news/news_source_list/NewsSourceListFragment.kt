@@ -5,8 +5,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.justmobiledev.mobile_developer_news.R
 import com.justmobiledev.mobile_developer_news.models.NewsMenuItem
-import com.justmobiledev.mobile_developer_news.portfolio.PortfolioContent
 import kotlinx.android.synthetic.main.activity_news_source_list.*
 
 /**
@@ -18,12 +18,11 @@ import kotlinx.android.synthetic.main.activity_news_source_list.*
 class NewsSourceListFragment : Fragment() {
 
 
-    private var item: NewsMenuItem.DummyItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        arguments?.let {
+        /* arguments?.let {
             if (it.containsKey(ARG_ITEM_ID)) {
                 // Load the dummy content specified by the fragment
                 // arguments. In a real-world scenario, use a Loader
@@ -38,7 +37,7 @@ class NewsSourceListFragment : Fragment() {
 
                 activity?.toolbar_layout?.title = title
             }
-        }
+        }*/
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -50,12 +49,4 @@ class NewsSourceListFragment : Fragment() {
         return rootView
     }
 
-    companion object {
-        /**
-         * The fragment argument representing the item ID that this fragment
-         * represents.
-         */
-        const val ARG_ITEM_ID = "item_id"
-        const val ARG_ITEM_NAME = "item_name"
-    }
 }

@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import com.justmobiledev.mobile_developer_news.R
+import com.justmobiledev.mobile_developer_news.news_source_list.NewsSourceListActivity
 import kotlinx.android.synthetic.main.activity_news_source_list.*
 
 /**
@@ -16,7 +18,7 @@ class NewsReaderActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_item_detail)
+        setContentView(R.layout.activity_news_reader)
         setSupportActionBar(detail_toolbar)
 
         // Show the Up button in the action bar.
@@ -34,7 +36,7 @@ class NewsReaderActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
-            val fragment = NewsReaderDetailFragment().apply {
+           /* val fragment = NewsReaderFragment().apply {
                 arguments = Bundle().apply {
                     putString(
                         MainMenuDetailFragment.ARG_ITEM_ID,
@@ -48,6 +50,7 @@ class NewsReaderActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                     .add(R.id.item_detail_container, fragment)
                     .commit()
+                    */
         }
     }
 

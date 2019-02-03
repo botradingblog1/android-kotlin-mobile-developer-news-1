@@ -8,12 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.justmobiledev.mobile_developer_news.main_menu.NewsReaderDetailFragment
+import com.justmobiledev.mobile_developer_news.R
+import com.justmobiledev.mobile_developer_news.news_reader.NewsReaderFragment
 import com.justmobiledev.mobile_developer_news.models.NewsMenuItem
+import com.justmobiledev.mobile_developer_news.news_reader.NewsReaderActivity
 
 import kotlinx.android.synthetic.main.activity_main_menu_list.*
 import kotlinx.android.synthetic.main.item_list_content.view.*
-import kotlinx.android.synthetic.main.main_menu_list.*
 
 // Main Activity
 class NewsSourceListActivity : AppCompatActivity() {
@@ -31,12 +32,12 @@ class NewsSourceListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_item_list)
+        setContentView(R.layout.activity_news_source_list)
 
         setSupportActionBar(toolbar)
         toolbar.title = title
 
-        if (item_detail_container != null) {
+        /* if (item_detail_container != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/layout-w900dp).
             // If this view is present, then the
@@ -49,7 +50,7 @@ class NewsSourceListActivity : AppCompatActivity() {
         // Load Detail fragment
         // Tablet Layout
         if (twoPane) {
-            val fragment = NewsReaderDetailFragment().apply {
+            val fragment = NewsReaderFragment().apply {
                 arguments = Bundle().apply {
                     putString(MainMenuDetailFragment.ARG_ITEM_ID, "0")
                 }
@@ -63,7 +64,7 @@ class NewsSourceListActivity : AppCompatActivity() {
             // Phone Layout
             //val intent = Intent(this, NewsSourceListActivity::class.java)
             //this.startActivity(intent)
-        }
+        }*/
     }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
@@ -107,10 +108,10 @@ class NewsSourceListActivity : AppCompatActivity() {
 
                 // Tablet Layout
                 if (twoPane) {
-                    val fragment = NewsReaderDetailFragment().apply {
+                    val fragment = NewsReaderFragment().apply {
                         arguments = Bundle().apply {
-                            putString(MainMenuDetailFragment.ARG_ITEM_ID, item.id)
-                            putString(MainMenuDetailFragment.ARG_ITEM_NAME, item.title)
+                            //putString(MainMenuDetailFragment.ARG_ITEM_ID, item.id)
+                            //putString(MainMenuDetailFragment.ARG_ITEM_NAME, item.title)
                         }
                     }
                     parentActivity.supportFragmentManager
@@ -121,8 +122,8 @@ class NewsSourceListActivity : AppCompatActivity() {
                 } else {
                     // Phone Layout
                     val intent = Intent(v.context, NewsReaderActivity::class.java).apply {
-                        putExtra(MainMenuDetailFragment.ARG_ITEM_ID, item.id)
-                        putExtra(MainMenuDetailFragment.ARG_ITEM_NAME, item.title)
+                        //putExtra(MainMenuDetailFragment.ARG_ITEM_ID, item.id)
+                        //putExtra(MainMenuDetailFragment.ARG_ITEM_NAME, item.title)
                     }
                     v.context.startActivity(intent)
                 }

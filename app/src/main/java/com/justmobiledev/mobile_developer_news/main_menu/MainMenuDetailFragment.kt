@@ -5,8 +5,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.justmobiledev.mobile_developer_news.portfolio.PortfolioContent
-import kotlinx.android.synthetic.main.activity_news_source_list.*
+import com.justmobiledev.mobile_developer_news.R
+
 
 /**
  * A fragment representing a single Item detail screen.

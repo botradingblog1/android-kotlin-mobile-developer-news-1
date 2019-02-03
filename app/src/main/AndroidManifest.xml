@@ -26,7 +26,6 @@
         </activity>
         <activity
             android:name="com.justmobiledev.mobile_developer_news.main_menu.NewsReaderActivity"
-            android:label="@string/title_item_detail"
             android:parentActivityName="com.justmobiledev.mobile_developer_news.main_menu.NewsSourceListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

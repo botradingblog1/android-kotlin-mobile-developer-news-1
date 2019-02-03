@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import com.justmobiledev.mobile_developer_news.main_menu.NewsSourceListActivity
+import com.justmobiledev.mobile_developer_news.main_menu.MainMenuListActivity
 
 class SplashActivity : AppCompatActivity() {
     private var mDelayHandler: Handler? = null
@@ -13,7 +13,7 @@ class SplashActivity : AppCompatActivity() {
     internal val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
 
-            val intent = Intent(applicationContext, NewsSourceListActivity::class.java)
+            val intent = Intent(applicationContext, MainMenuListActivity::class.java)
             startActivity(intent)
             finish()
         }

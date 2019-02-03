@@ -10,4 +10,4 @@
     android:text="this is the text"
     android:textSize="@dimen/font_size_body"
     android:textIsSelectable="true"
-    tools:context=".main_menu.NewsReaderDetailFragment" />
+    tools:context=".main_menu.NewsReaderFragment" />
