@@ -21,7 +21,7 @@ import com.justmobiledev.mobile_developer_news.news_source_detail.NewsSourceDeta
 
 import kotlinx.android.synthetic.main.activity_newssource_list.*
 import kotlinx.android.synthetic.main.news_source_list_content.view.*
-//import kotlinx.android.synthetic.main.newssource_list.*
+
 
 /**
  * An activity representing a list of Pings. This activity

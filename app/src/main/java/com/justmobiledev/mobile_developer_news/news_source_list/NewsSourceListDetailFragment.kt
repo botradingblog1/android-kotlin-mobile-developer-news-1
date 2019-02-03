@@ -17,6 +17,7 @@ import com.justmobiledev.mobile_developer_news.main_menu.MainMenuListActivity
 import com.justmobiledev.mobile_developer_news.models.NewsSourceItem
 import com.justmobiledev.mobile_developer_news.news_source_detail.NewsSourceDetailActivity
 import com.justmobiledev.mobile_developer_news.news_source_detail.NewsSourceDetailFragment
+//import kotlinx.android.synthetic.main.fragment_news_source_list.*
 import kotlinx.android.synthetic.main.news_source_list_content.view.*
 
 /**
@@ -31,7 +32,6 @@ class NewsSourceListDetailFragment : Fragment() {
     /**
      * The dummy content this fragment is presenting.
      */
-    private var newsItem : NewsSourceItem? = null
     private var newsSourceType = 0
     private var newsSourceTitle = ""
 
@@ -52,7 +52,11 @@ class NewsSourceListDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.news_source_list_detail, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_news_source_list, container, false)
+
+        val rcView = rootView.findViewById<RecyclerView>(R.id.news_source_list)
+
+        setupRecyclerView(rcView)
 
         return rootView
     }

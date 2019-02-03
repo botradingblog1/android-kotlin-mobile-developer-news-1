@@ -26,6 +26,8 @@ class MainMenuDetailFragment : Fragment() {
 
         var rootView  = inflater.inflate(R.layout.fragment_main_menu_detail, container, false)
 
+
+
         return rootView
     }
 }
