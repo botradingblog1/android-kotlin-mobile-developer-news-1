@@ -13,13 +13,6 @@
     "url": "https://iosdevweekly.com/issues.rss"
   },
   {
-    "id": 4,
-    "title": "Ray Wenderlich | Tutorials for iPhone",
-    "description": "Keep your Swift & iOS skills up-to-date via hands-on tutorials. Ray Wenderlich is a favorite of everyone on the V-Play team.",
-    "frequency": "11 posts per week",
-    "url": "http://raywenderlich.com/feed"
-  },
-  {
     "id": 5,
     "title": "AppCoda",
     "description": "AppCoda is an iOS programming blog. Our mission is to develop high quality and easy-to-read iOS programming tutorials in both Swift and Objective-C for anyone who want to learn iOS programming and pursue app development.",

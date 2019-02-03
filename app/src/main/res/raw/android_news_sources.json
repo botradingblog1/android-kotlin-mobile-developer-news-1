@@ -33,19 +33,5 @@
     "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
     "frequency" : "1 post per week",
     "url": "https://us2.campaign-archive.com/feed?u=887caf4f48db76fd91e20a06d&id=4eb677ad19"
-  },
-  {
-    "id": 8,
-    "title": "The Commons Blog",
-    "description": "The CommonsBlog covers everything to do with Android and updates every couple of days.",
-    "frequency" : "1 post per week",
-    "url": "https://commonsware.com/blog/feed.atom"
-  },
-  {
-    "id": 9,
-    "title": "Android-er",
-    "description": "Android-er is all about android programming development tutorial examples.",
-    "frequency" : "3 posts per month",
-    "url": "http://feeds.feedburner.com/Android-er"
   }
 ]
