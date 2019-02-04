@@ -32,6 +32,33 @@
     "description": "Tips and techniques for iOS and Mac development, weekday mornings at 9:42 AM. The goal of each of these 'bites' is to give the reader a brief overview or explanation of a particular concept, technique, or tool.",
     "frequency": "4 posts per week",
     "url": "https://littlebitesofcocoa.com/rss"
+  },
+  {
+    "id": 9,
+    "title": "objc.io",
+    "description": "Objc.io is focused on iOS and OS X development. It provides a user-friendly and beautifully designed page with more than 20 issues on such topics as debugging, security, games, MVVM and more. ",
+    "frequency": "2 posts per month",
+    "url": "https://www.objc.io/feed.xml"
+  },
+  {
+    "id": 10,
+    "title": "Erica Sandrun",
+    "description": "ery other day, Erica updates her blog, sharing her thoughts on a variety of topics including iOS, apps, Xcode, hardware, software, and FUN! Erica is also the author of a book called \"The Swift Developer's Cookbook\".",
+    "frequency": "2 posts per week",
+    "url": "https://ericasadun.com/feed/"
+  },
+  {
+    "id": 13,
+    "title": "That Thing In Swift",
+    "description": "As the blog name indicates, it's all about the things you need to know about Swift. Even though now Nick is branching out the topics a bit to provide a more general look at what's currently happening in Swift, still you'll learn a ton from his sharing.",
+    "frequency": "1 post per month",
+    "url": "https://thatthinginswift.com/index.xml"
+  },
+  {
+    "id": 14,
+    "title": "Invasive Code Blog",
+    "description": "As a digital agency in San Francisco, InvasiveCode focuses on creating advanced mobile solutions through iOS consulting and training. Its blog has been updated with extensive coverage of Apple's Frameworks and developer tools that you'll find helpful.",
+    "frequency": "1 post per month",
+    "url": "https://www.invasivecode.com/weblog/feed/?doing_wp_cron=1549279126.0047309398651123046875"
   }
-
 ]
