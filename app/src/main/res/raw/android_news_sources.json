@@ -36,44 +36,37 @@
   },
   {
     "id": 8,
-    "title": "Antonio",
-    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
-    "frequency" : "1 post per week",
+    "title": "Antonio Leiva",
+    "description": "Learn Android advanced topics in a fast and easy way! Articles and examples written with love. Material Design, MVP, Kotlin.",
+    "frequency" : "1 post per month",
     "url": "https://antonioleiva.com/category/blog/feed/"
   },
   {
-    "id": 8,
-    "title": "Dan",
-    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
-    "frequency" : "1 post per week",
+    "id": 9,
+    "title": "Dan Lew Codes",
+    "description": "Dan Lew is an Android software developer at Trello, a visual collaboration tool that creates a shared perspective on any project. In this blog, he shares code as well as thoughts on life, the universe and the mystery of it all.",
+    "frequency" : "1 post per month",
     "url": "https://blog.danlew.net/rss/"
   },
   {
-    "id": 8,
-    "title": "Dan",
-    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
-    "frequency" : "1 post per week",
-    "url": "https://blog.danlew.net/rss/"
-  },
-  {
-    "id": 8,
+    "id": 10,
     "title": "MobileDev Memo",
-    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
+    "description": "Mobile Dev Memo is the site of record for the mobile app development and marketing industry but they also publish their own posts which cover a range of engagement topics.",
     "frequency" : "1 post per week",
     "url": "https://mobiledevmemo.com/feed/"
   },
   {
-    "id": 8,
+    "id": 11,
     "title": "Fragmented",
-    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
-    "frequency" : "1 post per week",
+    "description": " You’ll find something new to learn about android development every time you visit Fragmented Podcast. Donn Felker and Kaushik Gopal often engage other Android developers on the same on a biweekly basis.",
+    "frequency" : "3 posts per month",
     "url": "http://fragmentedpodcast.com/feed/"
   },
   {
-    "id": 8,
-    "title": "Fragmented",
-    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
-    "frequency" : "1 post per week",
+    "id": 12,
+    "title": "Cyril Mottier",
+    "description": "This blog mainly focus on creating polished, pixel-perfect, smooth and responsive applications helping end users achieve their goals painlessly and, more importantly, as quickly as possible.",
+    "frequency" : "1 post per month",
     "url": "https://cyrilmottier.com/atom.xml?format=xml"
   }
 
