@@ -24,8 +24,8 @@ Android Studio or Eclipse with Android Development Tools.
 4. Finally, you get a list of articles that the RSS source published. When you click on the article, it opens to display the content.
 NOTE: Since these are RSS feeds, sometimes you need to click on a link to see the full article. The link will open in the device default browser.
 
-## Contribution
-I'd be happy if others could help to improve the app. A couple of ideas:
+## Contributers
+Looking for contributers to help improve the app. A couple of ideas:
 - Add RSS feeds for additional platforms and cross-platform tools (e.g. Xamarin, Windows)
 - Load RSS feed JSON remotely from GitHub
 - Improve article viewer. Instead of an AlertDialog open an Activity full page.
