@@ -33,5 +33,48 @@
     "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
     "frequency" : "1 post per week",
     "url": "https://us2.campaign-archive.com/feed?u=887caf4f48db76fd91e20a06d&id=4eb677ad19"
+  },
+  {
+    "id": 8,
+    "title": "Antonio",
+    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
+    "frequency" : "1 post per week",
+    "url": "https://antonioleiva.com/category/blog/feed/"
+  },
+  {
+    "id": 8,
+    "title": "Dan",
+    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
+    "frequency" : "1 post per week",
+    "url": "https://blog.danlew.net/rss/"
+  },
+  {
+    "id": 8,
+    "title": "Dan",
+    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
+    "frequency" : "1 post per week",
+    "url": "https://blog.danlew.net/rss/"
+  },
+  {
+    "id": 8,
+    "title": "MobileDev Memo",
+    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
+    "frequency" : "1 post per week",
+    "url": "https://mobiledevmemo.com/feed/"
+  },
+  {
+    "id": 8,
+    "title": "Fragmented",
+    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
+    "frequency" : "1 post per week",
+    "url": "http://fragmentedpodcast.com/feed/"
+  },
+  {
+    "id": 8,
+    "title": "Fragmented",
+    "description": "This free weekly newsletter includes everything from articles and tutorials to videos and GitHub libraries. It’s a must-subscribe for Android developers of all skill levels.",
+    "frequency" : "1 post per week",
+    "url": "https://cyrilmottier.com/atom.xml?format=xml"
   }
+
 ]
