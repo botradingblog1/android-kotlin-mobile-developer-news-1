@@ -41,6 +41,13 @@
     "url": "https://www.objc.io/feed.xml"
   },
   {
+    "id": 15,
+    "title": "JustMobileDev Blog",
+    "description": "Deep-dive tutorials and some personal bits and pieces from Chris Scheid's personal blog.",
+    "frequency" : "2 post per month",
+    "url": "http://justmobiledev.com/category/ios/feed/"
+  },
+  {
     "id": 10,
     "title": "Erica Sandrun",
     "description": "ery other day, Erica updates her blog, sharing her thoughts on a variety of topics including iOS, apps, Xcode, hardware, software, and FUN! Erica is also the author of a book called \"The Swift Developer's Cookbook\".",
