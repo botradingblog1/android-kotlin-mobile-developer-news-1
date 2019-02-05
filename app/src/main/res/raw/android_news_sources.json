@@ -35,6 +35,13 @@
     "url": "https://us2.campaign-archive.com/feed?u=887caf4f48db76fd91e20a06d&id=4eb677ad19"
   },
   {
+    "id": 13,
+    "title": "JustMobileDev Blog",
+    "description": "Deep-dive tutorials and some personal bits and pieces from Chris Scheid's personal blog.",
+    "frequency" : "2 post per month",
+    "url": "http://justmobiledev.com/category/android/feed/"
+  },
+  {
     "id": 8,
     "title": "Antonio Leiva",
     "description": "Learn Android advanced topics in a fast and easy way! Articles and examples written with love. Material Design, MVP, Kotlin.",
